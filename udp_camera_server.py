@@ -96,6 +96,7 @@ def main() -> None:
                 print(f"  Gönderilen FPS: {fps:.1f}")
                 print(f"  Çözünürlük: {w}x{h}")
                 print(f"  Ortalama Latency: {avg_latency:.1f}ms")
+                print(f"  JPEG Sıkıştırma Süresi: {encode_time:.1f}ms")
                 print(f"  UDP Gönderme Süresi: {avg_udp_time:.1f}ms")
                 print(f"  Frame Boyutu: {avg_bytes_per_frame:.0f} bytes")
                 print(f"  Bant Genişliği: {bandwidth_mbps:.2f} Mbps")
