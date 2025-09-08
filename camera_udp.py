@@ -10,6 +10,9 @@ REPORT_INTERVAL = 2.0  # saniye
 def main() -> None:
     # Kamerayı aç
     cap = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW)
+    
+    
+    # Çözünürlük ayarları (320x240 korunuyor)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, WIDTH)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, HEIGHT)
 
@@ -30,7 +33,7 @@ def main() -> None:
 
             frames += 1
 
-            # Frame'i göster
+            # Frame'i göster (her frame'de göster - en uygun)
             cv2.imshow("Kamera", frame)
             
             # Frame işleme bitişi
