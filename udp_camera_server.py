@@ -13,11 +13,15 @@ REPORT_INTERVAL = 2.0  # saniye
 # UDP ayarları
 UDP_IP = "127.0.0.1"  # Localhost
 UDP_PORT = 5005       # UDP port numarası
+BUFFER_SIZE = 65536   # Buffer boyutu
 
 def main() -> None:
     
     # UDP socket oluştur
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    # Buffer boyutlarını ayarla
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, BUFFER_SIZE)  # İsteğe bağlı
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, BUFFER_SIZE)  # ÖNEMLİ
     
     # Kamerayı aç
     cap = cv2.VideoCapture(CAMERA_INDEX, cv2.CAP_DSHOW)

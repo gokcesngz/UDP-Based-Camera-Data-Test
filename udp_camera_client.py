@@ -13,6 +13,10 @@ def main() -> None:
     
     # UDP socket oluştur
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    # Buffer boyutlarını ayarla
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, BUFFER_SIZE)  # ÖNEMLİ
+    sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, BUFFER_SIZE)  # İsteğe bağlı
+    
     sock.bind((UDP_IP, UDP_PORT))
     sock.settimeout(1.0)  # 1 saniye timeout
 
